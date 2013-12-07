@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Woocommerce PDF Invoices
  * Description: Generate PDF invoice and automatically attach to Woocommerce confirmation email.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: Bas Elbers
  * License: GPL2
  */

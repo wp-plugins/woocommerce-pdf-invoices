@@ -5,11 +5,19 @@
         document.getElementById('hiddenField').value = '';
     }
 </script>
+<style>
+    textarea{
+        width:670px;
+        height:90px;
+    }
+    input[type='text']{
+        width:670px;
+        margin-bottom:7px;
+    }
+</style>
 <div class="wrap">
-<h2>Woocommerc PDF Invoices</h2>
 <h3>Woocommerce PDF Invoices Settings</h3>
-<p>Please fill in the settings below. Woocommerce PDF Invoices generates a PDF invoice based upon the customer order and attaches it to the confirmation email. 
-    You can leave the custom logo blank, the plugin will use your company name.</p>
+<p>Please fill in the settings below. Woocommerce PDF Invoices generates a PDF invoice based upon the customer order and attaches it to the confirmation email.</p>
 
 <form method="post" action="options.php" enctype="multipart/form-data">
     <?php 
@@ -21,21 +29,30 @@
         <tr valign="top">
         <th scope="row"><strong>Company name:</strong></th>
             <td>
-                <input required type="text" size="40" name="be_woocommerce_pdf_invoices[company_name]" value="<?php echo $options['company_name']; ?>" />
+                <input required type="text" size="40" name="be_woocommerce_pdf_invoices[company_name]" value="<?php echo $options['company_name']; ?>" /><br/>
+                <div style="font-style:italic;">
+                    <span style="color:grey;">Add your company name here.</span>
+                <div>
             </td>
         </tr>
 
         <tr valign="top">
         <th scope="row"><strong>Company slogan:</strong></th>
             <td>
-                <input type="text" size="40" name="be_woocommerce_pdf_invoices[company_slogan]" value="<?php echo $options['company_slogan']; ?>" />
+                <input type="text" size="40" name="be_woocommerce_pdf_invoices[company_slogan]" value="<?php echo $options['company_slogan']; ?>" /><br/>
+                <div style="font-style:italic;">
+                    <span style="color:grey;">Add your company slogan here. You can leave it blank.</span>
+                <div>
             </td>
         </tr>
         
         <tr valign="top">
         <th scope="row"><strong>Custom logo:</strong></th>
             <td>
-                <input type="file" name="logo" accept="image/*" /><br />
+                <input style="width:660px; margin-bottom:7px;" type="file" name="logo" accept="image/*" /><br />
+                <div style="font-style:italic;">
+                    <span style="color:grey;">Add your custom company logo. You can leave it blank, the plugin will use your company name.</span>
+                <div>
                 <?php if($options['file_upload'] != ''){ ?>
                 <style>
                 #delete{
@@ -59,58 +76,30 @@
         <tr valign="top">
         <th scope="row"><strong>Company address:</strong></th>
             <td>
-                <input required type="text" size="40" name="be_woocommerce_pdf_invoices[address]" value="<?php echo esc_attr($options['address']); ?>" /><br />
+                <textarea required style="width:670px;" name="be_woocommerce_pdf_invoices[address]" ><?php echo esc_textarea($options['address']); ?></textarea><br/>
+                <div style="font-style:italic;">
+                    <span style="color:grey;">Add your company address here.</span>
+                <div>
             </td>
         </tr>
 
         <tr valign="top">
-        <th scope="row"><strong>Company ZIP code:</strong></th>
-            <td>
-                <input required type="text" size="40" name="be_woocommerce_pdf_invoices[zip_code]" value="<?php echo esc_attr($options['zip_code']); ?>" />
-            </td>
-        </tr>
-
-        <tr valign="top">
-        <th scope="row"><strong>Company city:</strong></th>
-            <td>
-                <input required type="text" size="40" name="be_woocommerce_pdf_invoices[city]" value="<?php echo esc_attr($options['city']); ?>" />
-            </td>
-        </tr>
-        
-        <tr valign="top">
-        <th scope="row"><strong>Company country:</strong></th>
-            <td>
-                <input required type="text" size="40" name="be_woocommerce_pdf_invoices[country]" value="<?php echo esc_attr($options['country']); ?>" />
-            </td>
-        </tr>
-
-        <tr valign="top">
-        <th scope="row"><strong>Company telephone number:</strong></th>
-            <td>
-                <input type="text" size="40" name="be_woocommerce_pdf_invoices[telephone]" value="<?php echo esc_attr($options['telephone']); ?>" />
-            </td>
-        </tr>
-
-        <tr valign="top">
-        <th scope="row"><strong>Company email:</strong></th>
-            <td>
-                <input required type="text" size="40" name="be_woocommerce_pdf_invoices[email]" value="<?php echo esc_attr($options['email']); ?>" />
-            </td>
-        </tr>
-
-        <tr valign="top">
-        <th scope="row"><strong>Company information:</strong></th>
+        <th scope="row"><strong>Additional company information:</strong></th>
             <td>
                 <textarea name="be_woocommerce_pdf_invoices[extra_company_info]" rows=6 cols=120 ><?php echo esc_textarea($options['extra_company_info']); ?></textarea><br/>
-                <span style="font-style:italic; font-weight:bold;">Note: </span><span style="font-style:italic; color:grey;">Use <?php echo htmlspecialchars("<b />"); ?> to get a line break.</span>
+                <div style="font-style:italic;">
+                    <span style="color:grey;">Add some additional company information like a email address, telephone number, company number and tax number. You can leave it blank.</span>
+                <div>
             </td>
         </tr>
 
         <tr valign="top">
-        <th scope="row"><strong>Payment information:</strong></th>
+        <th scope="row"><strong>Refunds policy, conditions etc.:</strong></th>
             <td>
                 <textarea name="be_woocommerce_pdf_invoices[extra_info]" rows=6 cols=120 ><?php echo esc_textarea($options['extra_info']);?></textarea><br/>
-                <span style="font-style:italic; font-weight:bold;">Note: </span><span style="font-style:italic; color:grey;">Use <?php echo htmlspecialchars("<b />"); ?> to get a line break.</span>
+                <div style="font-style:italic;">
+                    <span style="color:grey;">Add some policies, conditions etc. It will be placed beyond the products table. You can leave it blank.</span>
+                <div>
             </td>
         </tr>
     </table>

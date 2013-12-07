@@ -4,7 +4,7 @@ Donate link:
 Tags: woocommerce pdf invoices, invoice, generate, pdf, woocommerce, attachment 
 Requires at least: 3.5
 Tested up to: 3.7.1
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,6 +31,9 @@ Don't waste your time anymore on making invoices and sending it manually to the 
 - Auto generates a invoice number
 
 == Screenshots ==
+
+1. The Woocommerce PDF Invoices settings page.
+2. The generated PDF invoice.
 
 == Installation ==
 

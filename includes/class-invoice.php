@@ -105,9 +105,7 @@ function generate_invoice($val, $id, $order){
                         <span style="font-size: 16pt; font-weight: bold;"><?php echo $options['company_name']; ?></span><br />
                         <?php echo $options['company_slogan']; ?><br /><br />
                     <?php }
-                    echo $options['address']; ?><br />
-                    <?php echo $options['zip_code'] . " " . $options['city']; ?><br />
-                    <?php echo $options['country']; ?><br />
+                    echo nl2br($options['address']); ?><br />
                 </td>
                 <td width="50%" style="text-align: right;">
                     <span style="font-size:22pt;">
@@ -116,14 +114,8 @@ function generate_invoice($val, $id, $order){
                 </td>
             </tr>
             <tr>
-                <td>
-                    <?php echo __( 'Tel: ', 'woocommerce-pdf-invoices' ) . $options['telephone']; ?><br />
-                    <?php echo __( 'Email: ', 'woocommerce-pdf-invoices' ) . $options['email']; ?>
-                </td>
-            </tr>
-            <tr>
                 <td width="50%">
-                    <?php echo $options['extra_company_info']; ?><br />
+                    <?php echo nl2br($options['extra_company_info']); ?><br />
                 </td>
                 <td width="50%" style="font-size: 9pt; text-align:right;">
                     <?php echo sprintf( __( 'INVOICE NUMBER: ', 'woocommerce-pdf-invoices' )); echo $invoice_number; ?><br />
@@ -194,7 +186,7 @@ function generate_invoice($val, $id, $order){
         <table style="text-align: left; font-style: italic;">
             <tr>
                 <td>
-                    <?php echo $options['extra_info']; ?>
+                    <?php echo nl2br($options['extra_info']); ?>
                 </td>
             </tr>
         </table>
