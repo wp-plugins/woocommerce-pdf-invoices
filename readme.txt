@@ -8,10 +8,12 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simply generate PDF invoice based upon the order and automatically attach to confirmation email.
+Simple plugin to generate a PDF invoice based upon the customers order and automatically attaches it to the confirmation email.
 
 == Description ==
-Just a simple plugin that automatically generates PDF invoices and even attaches them to the confirmation email. You can't believe it?! It's totally free so test it out!
+This plugin simply generates a PDF Invoice based upon the customers order and automatically attaches it to the confirmation email. 
+Download the Woocommerce PDF Invoices plugin now!
+The plugin adds a new settings page as a submenu within the Woocommerce main menu and gives the option to customize your invoice by adding your company logo, extra company information, payment/conditions/refund information and more!
 
 = CUSTOMIZABLE =
 Your business is unique, so you should have the option to customize the invoice. It is possible to change your company name, add a company slogan, upload and use your company logo, add company information and add payment information.
@@ -25,14 +27,10 @@ Don't waste your time anymore on making invoices and sending it manually to the 
 - Upload and use your company logo
 - Add company address etc.
 - Add extra company information
-- Add payment information
+- Add payment/conditions/refund information
 - Auto generates a invoice number
 
 == Screenshots ==
-
-1. Simple but beautiful sharing links add the end of your posts. 
-2. Disable the default plugin CSS to create your own styles.
-2. The settings page of the plugin. 
 
 == Installation ==
 
