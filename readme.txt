@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: Bas Elbers
 Donate link:
-Tags: woocommerce pdf invoices, invoice, generate, pdf, woocommerce, attachment, customer invoice, completed order, attach, automatic
+Tags: wooCommerce pdf invoices, invoice, generate, pdf, wooCommerce, attachment, customer invoice, completed order, attach, automatic
 Requires at least: 3.5
 Tested up to: 3.7.1
 Stable tag: 1.0.1
@@ -12,11 +12,11 @@ Simple plugin to generate a PDF invoice based upon the customers order and autom
 
 == Description ==
 This plugin simply generates a PDF Invoice based upon the customers order and automatically attaches it to the customer invoice email. 
-Download the Woocommerce PDF Invoices plugin now!
-The plugin adds a new settings page as a submenu within the Woocommerce main menu and gives the option to customize your invoice by adding a company logo, company address, additional company information, refunds policies, conditions etc. and more!
+Download the WooCommerce PDF Invoices plugin now!
+The plugin adds a new settings page as a submenu within the WooCommerce main menu and gives the option to customize your invoice by adding a company logo, company address, additional company information, refunds policies, conditions etc. and more!
 
 = CUSTOMIZABLE =
-An invoice is a proffesional way of conducting business and every business is unique. That's why it is very important that your invoice contains the details your customers need. The Woocommerce PDF Invoices settings page gives you the possibility to fully customize your invoice.
+An invoice is a proffesional way of conducting business and every business is unique. That's why it is very important that your invoice contains the details your customers need. The WooCommerce PDF Invoices settings page gives you the possibility to fully customize your invoice.
 
 = AUTOMATIC =
 No more singly drafting invoices and manually sending invoices to your customers. No more waste of time. From now on, WooCommerce PDF Invoices does the job for you!
@@ -43,7 +43,7 @@ Of course you can! Please open a support thread and I will try to answer as soon
 
 == Screenshots ==
 
-1. The Woocommerce PDF Invoices settings page.
+1. The WooCommerce PDF Invoices settings page.
 2. The generated PDF invoice.
 
 == Installation ==
