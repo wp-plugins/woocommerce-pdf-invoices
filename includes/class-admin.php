@@ -5,10 +5,17 @@ class BEWPI_Admin {
 	function __construct() {
 		add_action( 'admin_init', array($this, 'register_settings' ));
 		add_action( 'admin_menu', array($this, 'add_menu_item'));
-
-		require BEWPI_PLUGIN_DIR . 'includes/class-invoice.php';
-		add_filter( 'woocommerce_email_attachments', array('BEWPI_Invoice', 'generate_invoice'),10,3 );
+        add_action('init', array($this, 'load_textdomain_for_woocommerce_pdf_invoices'));
+        add_action( 'admin_notices', array($this, 'woocommerce_pdf_invoices_admin_notices' ));
 	}
+
+    function woocommerce_pdf_invoices_admin_notices() {
+        settings_errors( 'woocommerce_pdf_invoices_notices' );
+    }
+
+    function load_textdomain_for_woocommerce_pdf_invoices() {
+        load_plugin_textdomain('woocommerce-pdf-invoices', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+    }
 
 	function register_settings() {
     	register_setting( 'be_woocommerce_pdf_invoices', 'be_woocommerce_pdf_invoices', array($this, 'validate_settings'));
@@ -18,22 +25,31 @@ class BEWPI_Admin {
     	add_submenu_page( 'woocommerce', 'Invoices by Bas Elbers', 'Invoices', 'manage_options', 'bewpi', array($this, 'show_settings_page') );
 	}
 
-	function validate_settings($settings) 
-	{ 
+	function validate_settings($settings) { 
     $old_settings = get_option('be_woocommerce_pdf_invoices');
+    $errors;
 
-    if(isset($_FILES['logo']))
+    if((isset($_FILES['logo']['name'])) && ($_FILES["logo"]["error"]==0))
     {
-        if ($_FILES['logo']['size'] <= 30000) 
-        {     
-            if ( preg_match('/(jpg|jpeg|png)$/', $_FILES['logo']['type']) ) 
-            {
+        if($_FILES['logo']['size'] <= 50000){
+            if(preg_match('/(jpg|jpeg|png)$/', $_FILES['logo']['type'])){   
                 $override = array('test_form' => false);
                 $file = wp_handle_upload( $_FILES['logo'], $override );
                 $settings['file_upload'] = $file['url'];
+            }else{
+                add_settings_error('woocommerce_pdf_invoices_notices', esc_attr( 'settings_updated' ), __('Please upload image with extension jpg, jpeg or png.'), 'error');
+                $errors++;
             }
+        }else{
+            add_settings_error('woocommerce_pdf_invoices_notices', esc_attr( 'settings_updated' ), __('Please upload image less then 50kB.'), 'error');
+            $errors++;
         }
     }
+    
+    if(!$errors){
+        add_settings_error('woocommerce_pdf_invoices_notices', esc_attr( 'settings_updated' ), __('Settings saved.'), 'updated');
+    }
+
     return $settings;
 	}
 

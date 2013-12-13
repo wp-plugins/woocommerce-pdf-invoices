@@ -5,6 +5,7 @@ function bewpi_get_options(){
 
 	if(!$options){
 		$defaults = array(
+        'email_type' => '',
         'company_name' => get_option('woocommerce_email_from_name'),
         'company_slogan' => '',
         'file_upload' => '',

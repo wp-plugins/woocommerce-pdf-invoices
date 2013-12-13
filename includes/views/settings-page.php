@@ -14,10 +14,13 @@
         width:670px;
         margin-bottom:7px;
     }
+    select{
+        margin-bottom:7px;
+    }
 </style>
 <div class="wrap">
-<h3>Woocommerce PDF Invoices Settings</h3>
-<p>Please fill in the settings below. Woocommerce PDF Invoices generates a PDF invoice based upon the customer order and attaches it to the confirmation email.</p>
+<h3>WooCommerce PDF Invoices Settings</h3>
+<p>Please fill in the settings below. WooCommerce PDF Invoices generates a PDF invoice based upon the customer order and attaches it to an email type of your choice.</p>
 
 <form method="post" action="options.php" enctype="multipart/form-data">
     <?php 
@@ -26,11 +29,27 @@
     $plugin_url = plugins_url();
     ?>
     <table class="form-table">
+    <tr valign="top">
+        <th scope="row"><strong>Email type:</strong></th>
+            <td>
+                <select style="width: 210px;" id="selectEmailType" name="be_woocommerce_pdf_invoices[email_type]">
+                    <option>-- Select --</option>
+                    <option value="customer_processing_order" <?php selected($options['email_type'], 'customer_processing_order'); ?>>Customer processing order</option>
+                    <option value="customer_completed_order" <?php selected($options['email_type'], 'customer_completed_order'); ?>>Customer completed order</option>
+                    <option value="customer_invoice" <?php selected($options['email_type'], 'customer_invoice'); ?>>Customer invoice</option>
+                </select>
+                <input type="hidden" id="hfEmailType" value="<?php echo esc_attr($options['email_type']); ?>" />
+                <div style="font-style:italic;">
+                    <span style="color:grey;">Select the type of email to attach the invoice to.</span>
+                <div>
+            </td>
+        </tr>
+    
         <tr valign="top">
         <th scope="row"><strong>Company name:</strong></th>
             <td>
                 <input required type="text" size="40" name="be_woocommerce_pdf_invoices[company_name]" value="<?php echo $options['company_name']; ?>" /><br/>
-                <div style="font-style:italic;">
+                <div style="font-style:italic; margin-bottom:7px;">
                     <span style="color:grey;">Add your company name here.</span>
                 <div>
             </td>
@@ -51,7 +70,7 @@
             <td>
                 <input style="width:660px; margin-bottom:7px;" type="file" name="logo" accept="image/*" /><br />
                 <div style="font-style:italic;">
-                    <span style="color:grey;">Add your custom company logo. You can leave it blank, the plugin will use your company name.</span>
+                    <span style="color:grey;">Add your custom company logo. Please upload image with a size behond 50kB. You don't have to upload any, the plugin will use your company name.</span>
                 <div>
                 <?php if($options['file_upload'] != ''){ ?>
                 <style>

@@ -1,17 +1,17 @@
 === Plugin Name ===
 Contributors: Bas Elbers
 Donate link:
-Tags: wooCommerce pdf invoices, invoice, generate, pdf, wooCommerce, attachment, customer invoice, completed order, attach, automatic
+Tags: woocommerce pdf invoices, invoice, generate, pdf, woocommerce, attachment, email, completed order, customer invoice, processing order, attach, automatic
 Requires at least: 3.5
-Tested up to: 3.7.1
-Stable tag: 1.0.1
+Tested up to: 3.8
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Simple plugin to generate a PDF invoice based upon the customers order and automatically attaches it to the customer invoice email.
 
 == Description ==
-This plugin simply generates a PDF Invoice based upon the customers order and automatically attaches it to the customer invoice email. 
+This plugin simply generates a PDF Invoice based upon the customers order and automatically attaches it to the email type of your choice. 
 Download the WooCommerce PDF Invoices plugin now!
 The plugin adds a new settings page as a submenu within the WooCommerce main menu and gives the option to customize your invoice by adding a company logo, company address, additional company information, refunds policies, conditions etc. and more!
 
@@ -29,7 +29,7 @@ No more singly drafting invoices and manually sending invoices to your customers
 - Add additional company information
 - Add refunds policies, conditions etc.
 - Auto generating invoice numbers
-- Auto attaching to the customer invoice email
+- Attach pdf invoice to email type of your choice
 
 == Frequently Asked Questions ==
 
@@ -62,12 +62,19 @@ The manual installation method involves downloading our eCommerce plugin and upl
 
 == Changelog ==
 
+= 1.0.2 - December 13, 2013 =
+
+- Added: Attach pdf invoice to email type of your choice.
+- Added: Translation ready.
+- Added: Update and error notes to the settings page.
+- Improved: Notes to the settings page.
+
 = 1.0.1 - December 7, 2013 =
 
+- Added: Notes to the settings page.
 - Improved: Changed individual address fields to one textarea field.
 - Improved: Automatic linebreaks in textarea fields.
-- Improved: Added notes to the settings page.
 
-= 1.0 - December 6, 2013 =
+= 1.0.0 - December 6, 2013 =
 
 - Initial release.

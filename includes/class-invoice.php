@@ -2,12 +2,16 @@
 
 class BEWPI_Invoice {
 
+function __construct(){
+    add_filter( 'woocommerce_email_attachments', array($this, 'generate_invoice'),10,3 );
+}
+
 function generate_invoice($val, $id, $order){
-    if($id == 'customer_invoice')
+    $options = get_option('be_woocommerce_pdf_invoices');
+    
+    if($id == $options['email_type'])
     {
         include(BEWPI_PLUGIN_DIR . '/mpdf/mpdf.php');
-
-        $options = get_option('be_woocommerce_pdf_invoices');
 
         $items = $order->get_items();
 
@@ -39,22 +43,6 @@ function generate_invoice($val, $id, $order){
         $mpdf->useOnlyCoreFonts = true; // false is default
         $mpdf->SetProtection(array('print'));
         $mpdf->SetDisplayMode('fullpage');
-
-        // Get all items and output in table rows and datacells.
-        $all_items;
-        foreach ( $items as $item ) {
-            $item_subtotal = $order->get_item_subtotal($item);
-            $item_total = $item['qty'] * $item_subtotal;
-            $formatted_item_subtotal = woocommerce_price($item_subtotal);
-            $formatted_item_total = woocommerce_price($item_total);
-
-            $all_items .= "<tr><td align='center'>" . $item['product_id'] . "</td>" .
-            "<td align='center'>" . $item['qty'] . "</td>" .
-            "<td>" . $item['name'] . "</td>" .
-            "<td align='right'>" . $formatted_item_subtotal . "</td>" .
-            "<td align='right'>" . $formatted_item_total . "</td>" .
-            "</tr>";
-        }
 
         // The HTML PDF invoice
         ob_start();
@@ -160,17 +148,31 @@ function generate_invoice($val, $id, $order){
             </thead>
             <tbody>
                 <!-- ITEMS HERE -->
-                <?php echo $all_items; ?>
+                <?php foreach ( $items as $item ) {
+                    $item_subtotal = $order->get_item_subtotal($item);
+                    $item_total = $item['qty'] * $item_subtotal;
+                    $formatted_item_subtotal = woocommerce_price($item_subtotal);
+                    $formatted_item_total = woocommerce_price($item_total); ?>
+                    <tr>
+                        <td align='center'><?php echo $item['product_id']; ?></td>
+                        <td align='center'><?php echo $item['qty']; ?></td>
+                        <td><?php echo $item['name']; ?></td>
+                        <td align='right'><?php echo $formatted_item_subtotal; ?></td>
+                        <td align='right'><?php echo $formatted_item_total; ?></td>
+                    </tr>
+                <?php } ?>
                 <!-- END ITEMS HERE -->
                 <tr>
                     <td class="blanktotal" colspan="3" rowspan="6"></td>
                     <td class="totals"><?php echo __( 'SUBTOTAL', 'woocommerce-pdf-invoices' ); ?></td>
                     <td class="totals"><?php echo woocommerce_price($order_subtotal); ?></td>
                 </tr>
+                <?php if(get_option( 'woocommerce_calc_taxes' ) == 'yes') { ?>
                 <tr>
                     <td class="totals"><?php echo __( 'SALES TAX', 'woocommerce-pdf-invoices' ); ?></td>
                     <td class="totals"><?php echo woocommerce_price($total_tax); ?></td>
                 </tr>
+                <?php } ?>
                 <tr>
                     <td class="totals"><?php echo __( 'SHIPPING & HANDLING', 'woocommerce-pdf-invoices' ); ?></td>
                     <td class="totals"><?php echo woocommerce_price($order->get_shipping()); ?></td>

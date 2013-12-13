@@ -1,0 +1,81 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce PDF Invoices\n"
+"POT-Creation-Date: 2013-12-13 14:48+0100\n"
+"PO-Revision-Date: 2013-12-13 14:49+0100\n"
+"Last-Translator: Bas Elbers <baselbers@hotmail.com>\n"
+"Language-Team: \n"
+"Language: en_GB\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-SearchPath-0: ../.\n"
+
+#: .././includes/class-invoice.php:100
+msgid "INVOICE"
+msgstr ""
+
+#: .././includes/class-invoice.php:109
+msgid "INVOICE NUMBER: "
+msgstr ""
+
+#: .././includes/class-invoice.php:110
+#, php-format
+msgid "DATE: %02d-%02d-%04d"
+msgstr ""
+
+#: .././includes/class-invoice.php:119
+msgid "TO:"
+msgstr ""
+
+#: .././includes/class-invoice.php:123
+msgid "SHIP TO:"
+msgstr ""
+
+#: .././includes/class-invoice.php:132
+msgid "Notes:"
+msgstr ""
+
+#: .././includes/class-invoice.php:142
+msgid "SKU"
+msgstr ""
+
+#: .././includes/class-invoice.php:143
+msgid "QUANTITY"
+msgstr ""
+
+#: .././includes/class-invoice.php:144
+msgid "DESCRIPTION"
+msgstr ""
+
+#: .././includes/class-invoice.php:145
+msgid "UNIT PRICE"
+msgstr ""
+
+#: .././includes/class-invoice.php:146
+msgid "TOTAL"
+msgstr ""
+
+#: .././includes/class-invoice.php:167
+msgid "SUBTOTAL"
+msgstr ""
+
+#: .././includes/class-invoice.php:172
+msgid "SALES TAX"
+msgstr ""
+
+#: .././includes/class-invoice.php:177
+msgid "SHIPPING & HANDLING"
+msgstr ""
+
+#: .././includes/class-invoice.php:181
+msgid "TOTAL DUE"
+msgstr ""
+
+#: .././includes/class-invoice.php:198
+#, php-format
+msgid "Page %s of %s"
+msgstr ""
