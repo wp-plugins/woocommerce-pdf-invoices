@@ -8,7 +8,7 @@ Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple plugin to generate a PDF invoice based upon the customers order and automatically attaches it to the customer invoice email.
+Simple plugin to generate a PDF invoice based upon the customers order and automatically attaches it to the email type of your choice.
 
 == Description ==
 This plugin simply generates a PDF Invoice based upon the customers order and automatically attaches it to the email type of your choice. 
