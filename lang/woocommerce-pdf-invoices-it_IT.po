@@ -1,0 +1,128 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce PDF Invoices\n"
+"POT-Creation-Date: 2013-12-21 18:52+0100\n"
+"PO-Revision-Date: 2013-12-21 18:59+0100\n"
+"Last-Translator: Bas Elbers <baselbers@hotmail.com>\n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.2\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-SearchPath-0: ../.\n"
+
+#: .././includes/class-admin.php:44
+msgid "Please upload image with extension jpg, jpeg or png."
+msgstr ""
+
+#: .././includes/class-admin.php:48
+msgid "Please upload image less then 50kB."
+msgstr ""
+
+#: .././includes/class-admin.php:54
+msgid "Settings saved."
+msgstr ""
+
+#: .././includes/class-invoice.php:99
+msgid "INVOICE"
+msgstr "FATTURA"
+
+#: .././includes/class-invoice.php:108
+msgid "Invoice Number: "
+msgstr ""
+
+#: .././includes/class-invoice.php:109
+#, php-format
+msgid "Date: %02d-%02d-%04d"
+msgstr "DATA: %02d-%02d-%04d"
+
+#: .././includes/class-invoice.php:118
+msgid "To:"
+msgstr "DESTINATARIO:"
+
+#: .././includes/class-invoice.php:122
+msgid "Ship To:"
+msgstr ""
+
+#: .././includes/class-invoice.php:132
+msgid "Notes:"
+msgstr "Misure richieste:"
+
+#: .././includes/class-invoice.php:143
+msgid "SKU"
+msgstr "COD.PRODOTTO"
+
+#: .././includes/class-invoice.php:144
+msgid "Quantity"
+msgstr ""
+
+#: .././includes/class-invoice.php:145
+msgid "Description"
+msgstr ""
+
+#: .././includes/class-invoice.php:146
+msgid "Unit price"
+msgstr ""
+
+#: .././includes/class-invoice.php:147 .././includes/class-invoice.php:186
+msgid "Total"
+msgstr ""
+
+#: .././includes/class-invoice.php:168
+msgid "Discount"
+msgstr ""
+
+#: .././includes/class-invoice.php:172
+msgid "Subtotal"
+msgstr ""
+
+#: .././includes/class-invoice.php:177
+msgid "VAT "
+msgstr ""
+
+#: .././includes/class-invoice.php:182
+msgid "Shipping"
+msgstr ""
+
+#: .././includes/class-invoice.php:203
+#, php-format
+msgid "Page %s of %s"
+msgstr "Pagina %s di %s"
+
+#: .././includes/views/settings-page.php:16
+msgid "Test"
+msgstr "Vertaling werkt."
+
+#~ msgid "INVOICE NUMBER: "
+#~ msgstr "FATTURA NUMERO:"
+
+#~ msgid "SHIP TO:"
+#~ msgstr "SPEDISCI A:"
+
+#~ msgid "QUANTITY"
+#~ msgstr "QUANTITA'"
+
+#~ msgid "DESCRIPTION"
+#~ msgstr "DESCRIZIONE"
+
+#~ msgid "UNIT PRICE"
+#~ msgstr "COSTO/ARTICOLO"
+
+#~ msgid "TOTAL"
+#~ msgstr "TOTALE"
+
+#~ msgid "SUBTOTAL"
+#~ msgstr "SUBTOTALE"
+
+#~ msgid "SALES TAX"
+#~ msgstr "IVA"
+
+#~ msgid "SHIPPING & HANDLING"
+#~ msgstr "SPEDIZIONE"
+
+#~ msgid "TOTAL DUE"
+#~ msgstr "TOTALE"
