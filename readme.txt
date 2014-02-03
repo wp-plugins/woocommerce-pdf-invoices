@@ -70,15 +70,15 @@ The manual installation method involves downloading our eCommerce plugin and upl
 
 = 1.1.0 - February 3, 2014 =
 
-Added: Choose to display product SKU.
-Added: Choose to display notes.
-Added: Choose your desired invoice number format.
-Added: Attach invoice to admin "New Order" email type.
-Added: Input your desired VAT rates to display.
-Added: Sequential invoice numbers.
-Improved: Display and calucatlion of VAT rates.
-Fixed: Translation
-Fixed: Product SKU
+- Added: Choose to display product SKU.
+- Added: Choose to display notes.
+- Added: Choose your desired invoice number format.
+- Added: Attach invoice to admin "New Order" email type.
+- Added: Input your desired VAT rates to display.
+- Added: Sequential invoice numbers.
+- Improved: Display and calucatlion of VAT rates.
+- Fixed: Translation
+- Fixed: Product SKU
 
 = 1.0.2 - December 13, 2013 =
 
