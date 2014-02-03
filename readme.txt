@@ -1,10 +1,10 @@
 === Plugin Name ===
-Contributors: Bas Elbers
+Contributors: baaaaas
 Donate link:
-Tags: woocommerce pdf invoices, invoice, generate, pdf, woocommerce, attachment, email, completed order, customer invoice, processing order, attach, automatic
+Tags: woocommerce pdf invoices, invoice, generate, pdf, woocommerce, attachment, email, completed order, customer invoice, processing order, attach, automatic, vat, rate
 Requires at least: 3.5
-Tested up to: 3.8
-Stable tag: 1.0.2
+Tested up to: 3.8.1
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,23 +13,28 @@ Simple plugin to generate a PDF invoice based upon the customers order and autom
 == Description ==
 This plugin simply generates a PDF Invoice based upon the customers order and automatically attaches it to the email type of your choice. 
 Download the WooCommerce PDF Invoices plugin now!
-The plugin adds a new settings page as a submenu within the WooCommerce main menu and gives the option to customize your invoice by adding a company logo, company address, additional company information, refunds policies, conditions etc. and more!
+The plugin adds a new settings page as a submenu within the WooCommerce main menu and gives the option to customize  and configure your invoice by adding a company logo, company address, additional company information, refunds policies, conditions etc. and more!
 
 = CUSTOMIZABLE =
 An invoice is a proffesional way of conducting business and every business is unique. That's why it is very important that your invoice contains the details your customers need. The WooCommerce PDF Invoices settings page gives you the possibility to fully customize your invoice.
 
 = AUTOMATIC =
-No more singly drafting invoices and manually sending invoices to your customers. No more waste of time. From now on, WooCommerce PDF Invoices does the job for you!
+No more singly drafting invoices and manually sending invoices to your customers, it even uses sequential invoice numbers. No more waste of time! From now on, WooCommerce PDF Invoices does the job for you and it's totally free!
 
 = FEATURES =
-- Change your company name
+- Attach PDF invoice to email type of your choice
+- Attach PDF invoice to the "New Order" email type for bookkeeping purposes 
+- Add your company name
 - Add your company slogan
 - Upload and use your company logo
 - Add your company address
 - Add additional company information
 - Add refunds policies, conditions etc.
-- Auto generating invoice numbers
-- Attach pdf invoice to email type of your choice
+- Sequential invoice numbers
+- Choose between different invoice number formats
+- Choose to display customer notes
+- Choose to display SKU
+- Add your company vat rates to calculate and display 
 
 == Frequently Asked Questions ==
 
@@ -44,7 +49,8 @@ Of course you can! Please open a support thread and I will try to answer as soon
 == Screenshots ==
 
 1. The WooCommerce PDF Invoices settings page.
-2. The generated PDF invoice.
+2. The WooCommerce PDF Invoices settings page.
+3. The generated PDF invoice.
 
 == Installation ==
 
@@ -61,6 +67,18 @@ The manual installation method involves downloading our eCommerce plugin and upl
 3. Activate the plugin from the Plugins menu within the WordPress admin.
 
 == Changelog ==
+
+= 1.1.0 - February 3, 2014 =
+
+Added: Choose to display product SKU.
+Added: Choose to display notes.
+Added: Choose your desired invoice number format.
+Added: Attach invoice to admin "New Order" email type.
+Added: Input your desired VAT rates to display.
+Added: Sequential invoice numbers.
+Improved: Display and calucatlion of VAT rates.
+Fixed: Translation
+Fixed: Product SKU
 
 = 1.0.2 - December 13, 2013 =
 
