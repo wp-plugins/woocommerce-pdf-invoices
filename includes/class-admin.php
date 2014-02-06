@@ -1,31 +1,35 @@
 <?php
-
 class BEWPI_Admin {
 
-	function __construct() {
-		add_action( 'admin_init', array($this, 'register_settings' ));
-		add_action( 'admin_menu', array($this, 'add_menu_item'));
-        add_action('init', array($this, 'load_textdomain_for_woocommerce_pdf_invoices'));
+    function __construct() {
+        add_action( 'admin_init', array($this, 'register_settings' ));
+        add_action( 'admin_menu', array($this, 'add_menu_item'));
         add_action( 'admin_notices', array($this, 'woocommerce_pdf_invoices_admin_notices' ));
-	}
+    }
 
     function woocommerce_pdf_invoices_admin_notices() {
         settings_errors( 'woocommerce_pdf_invoices_notices' );
     }
 
-    function load_textdomain_for_woocommerce_pdf_invoices() {
-        load_plugin_textdomain('woocommerce-pdf-invoices', false, dirname( plugin_basename( __FILE__ ) ) . '/lang/' );
+    function register_settings() {
+        register_setting( 'be_woocommerce_pdf_invoices', 'be_woocommerce_pdf_invoices', array($this, 'validate_settings'));
     }
 
-	function register_settings() {
-    	register_setting( 'be_woocommerce_pdf_invoices', 'be_woocommerce_pdf_invoices', array($this, 'validate_settings'));
-	}
+    function add_menu_item() {
+        $page = add_submenu_page( 'woocommerce', 'Invoices by Bas Elbers', 'Invoices', 'manage_options', 'bewpi', array($this, 'show_settings_page') );
 
-	function add_menu_item() {
-    	add_submenu_page( 'woocommerce', 'Invoices by Bas Elbers', 'Invoices', 'manage_options', 'bewpi', array($this, 'show_settings_page') );
-	}
+        // Nieuwe functionaliteit
+        add_action( 'admin_print_styles-' . $page, array($this, 'woocommerce_pdf_invoices_admin_styles' ));
+        // Einde
+    }
 
-	function validate_settings($settings) { 
+    // Nieuwe functionaliteit
+    function woocommerce_pdf_invoices_admin_styles() {
+        wp_enqueue_style( 'AdminStylesheet', plugins_url()."/woocommerce-pdf-invoices/assets/css/admin-styles.css" );
+    }
+    // Einde
+
+    function validate_settings($settings) { 
     $old_settings = get_option('be_woocommerce_pdf_invoices');
     $errors;
 
@@ -51,10 +55,10 @@ class BEWPI_Admin {
     }
 
     return $settings;
-	}
+    }
 
-	public function show_settings_page() {
-		$options = bewpi_get_options();
-		include BEWPI_PLUGIN_DIR . 'includes/views/settings-page.php';
-	}
+    public function show_settings_page() {
+        $options = bewpi_get_options();
+        include BEWPI_PLUGIN_DIR . 'includes/views/settings-page.php';
+    }
 }

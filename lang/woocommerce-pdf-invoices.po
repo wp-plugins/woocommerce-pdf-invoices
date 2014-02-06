@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce PDF Invoices\n"
-"POT-Creation-Date: 2013-12-13 14:48+0100\n"
-"PO-Revision-Date: 2013-12-13 14:49+0100\n"
+"POT-Creation-Date: 2014-02-06 21:36+0100\n"
+"PO-Revision-Date: 2014-02-06 21:38+0100\n"
 "Last-Translator: Bas Elbers <baselbers@hotmail.com>\n"
 "Language-Team: \n"
 "Language: en_GB\n"
@@ -14,68 +14,88 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-SearchPath-0: ../.\n"
 
-#: .././includes/class-invoice.php:100
+#: .././includes/class-admin.php:44
+msgid "Please upload image with extension jpg, jpeg or png."
+msgstr ""
+
+#: .././includes/class-admin.php:48
+msgid "Please upload image less then 50kB."
+msgstr ""
+
+#: .././includes/class-admin.php:54
+msgid "Settings saved."
+msgstr ""
+
+#: .././includes/class-invoice.php:165
 msgid "INVOICE"
 msgstr ""
 
-#: .././includes/class-invoice.php:109
+#: .././includes/class-invoice.php:174
 msgid "INVOICE NUMBER: "
 msgstr ""
 
-#: .././includes/class-invoice.php:110
+#: .././includes/class-invoice.php:175
 #, php-format
 msgid "DATE: %02d-%02d-%04d"
 msgstr ""
 
-#: .././includes/class-invoice.php:119
+#: .././includes/class-invoice.php:184
 msgid "TO:"
 msgstr ""
 
-#: .././includes/class-invoice.php:123
+#: .././includes/class-invoice.php:188
 msgid "SHIP TO:"
 msgstr ""
 
-#: .././includes/class-invoice.php:132
+#: .././includes/class-invoice.php:198
 msgid "Notes:"
 msgstr ""
 
-#: .././includes/class-invoice.php:142
+#: .././includes/class-invoice.php:211
 msgid "SKU"
 msgstr ""
 
-#: .././includes/class-invoice.php:143
-msgid "QUANTITY"
+#: .././includes/class-invoice.php:213
+msgid "Description"
 msgstr ""
 
-#: .././includes/class-invoice.php:144
-msgid "DESCRIPTION"
+#: .././includes/class-invoice.php:214
+msgid "Quantity"
 msgstr ""
 
-#: .././includes/class-invoice.php:145
-msgid "UNIT PRICE"
+#: .././includes/class-invoice.php:215
+msgid "Unit price"
 msgstr ""
 
-#: .././includes/class-invoice.php:146
-msgid "TOTAL"
+#: .././includes/class-invoice.php:216
+msgid "Total"
 msgstr ""
 
-#: .././includes/class-invoice.php:167
-msgid "SUBTOTAL"
+#: .././includes/class-invoice.php:249
+msgid "Discount"
 msgstr ""
 
-#: .././includes/class-invoice.php:172
-msgid "SALES TAX"
+#: .././includes/class-invoice.php:253
+msgid "Subtotal"
 msgstr ""
 
-#: .././includes/class-invoice.php:177
-msgid "SHIPPING & HANDLING"
+#: .././includes/class-invoice.php:257
+msgid "Shipping"
 msgstr ""
 
-#: .././includes/class-invoice.php:181
-msgid "TOTAL DUE"
+#: .././includes/class-invoice.php:264
+#, php-format
+msgid "VAT %s%%"
 msgstr ""
 
-#: .././includes/class-invoice.php:198
+#: .././includes/class-invoice.php:269
+msgid "Grand Total"
+msgstr ""
+
+#: .././includes/class-invoice.php:286
 #, php-format
 msgid "Page %s of %s"
 msgstr ""
+
+#~ msgid "Test"
+#~ msgstr "test"
