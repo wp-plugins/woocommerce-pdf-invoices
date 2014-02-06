@@ -43,7 +43,8 @@ Of course you can! Please open a support thread and I will try to answer as soon
 == Screenshots ==
 
 1. Settings page.
-2. Generated PDF invoice.
+2. Settings page.
+3. Generated PDF invoice.
 
 == Installation ==
 
