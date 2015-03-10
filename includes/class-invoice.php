@@ -255,7 +255,7 @@ function generate_invoice($val, $id, $order){
                 </tr>
                 <tr>
                     <td class="totals"><?php _e( 'Shipping', 'woocommerce-pdf-invoices' ); ?></td>
-                    <td class="totals"><?php echo woocommerce_price($order->get_shipping()); ?></td>
+                    <td class="totals"><?php echo woocommerce_price($order->get_shipping_to_display()); ?></td>
                 </tr>
                 <?php
                 if($vat_rates != 0){
