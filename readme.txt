@@ -8,7 +8,7 @@ Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple plugin to generate a customized PDF invoice based upon a WooCommerce order and automatically attaches it to the WooCommerce email type of your choice.
+Simple plugin to generate a customized PDF invoice based upon an order and automatically attaches it to the email type of your choice.
 
 == Description ==
 This plugin simply generates a customized PDF Invoice based upon a WooCommerce order and automatically attaches it to the email type of your choice. Now sending invoices to your Google Drive, Egnyte, Dropbox or OneDrive and it's all FREE!
