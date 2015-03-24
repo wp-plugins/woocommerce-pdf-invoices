@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: Bas Elbers
+Contributors: baaaaas
 Donate link: 
 Tags: woocommerce pdf invoices, invoice, generate, pdf, woocommerce, attachment, email, completed order, customer invoice, processing order, attach, automatic, vat, rate, sequential, number
 Requires at least: 3.5
