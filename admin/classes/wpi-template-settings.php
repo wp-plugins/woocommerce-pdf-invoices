@@ -467,38 +467,44 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
             $output = array();
 
             // Validate template id
-            if ($this->is_valid_int($input['template_id'])) {
-                $output['template_id'] = $input['template_id'];
-            } else {
-                add_settings_error(
-                    esc_attr($this->settings_key),
-                    'invalid-template-value',
-                    __('Invalid template.', $this->textdomain)
-                );
+            if( isset( $input['template_id'] ) ) {
+                if ($this->is_valid_int($input['template_id'])) {
+                    $output['template_id'] = $input['template_id'];
+                } else {
+                    add_settings_error(
+                        esc_attr($this->settings_key),
+                        'invalid-template-value',
+                        __('Invalid template.', $this->textdomain)
+                    );
+                }
             }
 
             // Validate color theme.
-            if (is_string($this->is_valid_hex_color($input['color_theme']))) {
-                $output['color_theme'] = $this->is_valid_hex_color($input['color_theme']);
-            } else if ($this->is_valid_hex_color($input['color_theme'])) {
-                $output['color_theme'] = $input['color_theme'];
-            } else {
-                add_settings_error(
-                    esc_attr($this->settings_key),
-                    'invalid-color-hex',
-                    __('Invalid color theme code.', $this->textdomain)
-                );
+            if( isset( $input['color_theme'] ) ) {
+                if (is_string($this->is_valid_hex_color($input['color_theme']))) {
+                    $output['color_theme'] = $this->is_valid_hex_color($input['color_theme']);
+                } else if ($this->is_valid_hex_color($input['color_theme'])) {
+                    $output['color_theme'] = $input['color_theme'];
+                } else {
+                    add_settings_error(
+                        esc_attr($this->settings_key),
+                        'invalid-color-hex',
+                        __('Invalid color theme code.', $this->textdomain)
+                    );
+                }
             }
 
             // Validate company name
-            if ($this->is_valid_str($input['company_name'])) {
-                $output['company_name'] = $input['company_name'];
-            } else {
-                add_settings_error(
-                    esc_attr($this->settings_key),
-                    'invalid-company-name',
-                    __('Invalid company name.', $this->textdomain)
-                );
+            if( isset( $input['company_name'] ) ) {
+                if ($this->is_valid_str($input['company_name'])) {
+                    $output['company_name'] = $input['company_name'];
+                } else {
+                    add_settings_error(
+                        esc_attr($this->settings_key),
+                        'invalid-company-name',
+                        __('Invalid company name.', $this->textdomain)
+                    );
+                }
             }
 
             // Validate company logo
@@ -506,7 +512,12 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
 
             // Validate textarea's
             $ta_errors = 0;
-            $textarea_values = array('intro_text' => $input['intro_text'], 'company_address' => $input['company_address'], 'company_details' => $input['company_details'], 'terms' => $input['terms']);
+            $textarea_values = array(
+                'intro_text' => ( isset( $input['intro_text'] ) ) ? $input['intro_text'] : '',
+                'company_address' => ( isset( $input['company_address'] ) ) ? $input['company_address'] : '',
+                'company_details' => ( isset( $input['company_details'] ) ) ? $input['company_details'] : '',
+                'terms' => ( isset( $input['terms'] ) ) ? $input['terms'] : ''
+            );
             foreach ($textarea_values as $key => $value) {
                 ($this->validate_textarea($value)) ? $output[$key] = $value : $ta_errors += 1;
             }
@@ -520,24 +531,28 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
             }
 
             // Validate next invoice number
-            if ($this->is_valid_int($input['next_invoice_number'])) {
-                $output['next_invoice_number'] = $input['next_invoice_number'];
-            } else {
-                add_settings_error(
-                    esc_attr($this->settings_key),
-                    'invalid_next_invoice_number',
-                    __('Invalid (next) invoice number.', $this->textdomain)
-                );
+            if( isset( $input['next_invoice_number'] ) ) {
+                if ($this->is_valid_int($input['next_invoice_number'])) {
+                    $output['next_invoice_number'] = $input['next_invoice_number'];
+                } else {
+                    add_settings_error(
+                        esc_attr($this->settings_key),
+                        'invalid_next_invoice_number',
+                        __('Invalid (next) invoice number.', $this->textdomain)
+                    );
+                }
             }
 
             // Validate zero digits
             $ind_errors = 0;
-            if ($this->is_valid_int($input['invoice_number_digits'])) {
-                ($input['invoice_number_digits'] >= 3 && $input['invoice_number_digits'] <= 6)
-                    ? $output['invoice_number_digits'] = $input['invoice_number_digits']
-                    : $ind_errors += 1;
-            } else {
-                $ind_errors += 1;
+            if( isset( $input['invoice_number_digits'] ) ) {
+                if ($this->is_valid_int($input['invoice_number_digits'])) {
+                    ($input['invoice_number_digits'] >= 3 && $input['invoice_number_digits'] <= 6)
+                        ? $output['invoice_number_digits'] = $input['invoice_number_digits']
+                        : $ind_errors += 1;
+                } else {
+                    $ind_errors += 1;
+                }
             }
 
             if ($ind_errors > 0) {
@@ -549,42 +564,51 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
             }
 
             // Validate invoice number prefix and suffix.
-            $output['invoice_prefix'] = esc_html($input['invoice_prefix']);
-            $output['invoice_suffix'] = esc_html($input['invoice_suffix']);
+            if( isset( $input['invoice_prefix'] ) ) {
+                $output['invoice_prefix'] = esc_html($input['invoice_prefix']);
+            }
+
+            if( isset( $input['email_it_in_account'] ) ) {
+                $output['invoice_suffix'] = esc_html($input['invoice_suffix']);
+            }
 
             // Validate invoice number format
-            if ($this->is_valid_str($input['invoice_format'])) {
-                if (strpos($input['invoice_format'], '[number]') !== false) {
-                    $output['invoice_format'] = $input['invoice_format'];
+            if( isset( $input['invoice_format'] ) ) {
+                if ($this->is_valid_str($input['invoice_format'])) {
+                    if (strpos($input['invoice_format'], '[number]') !== false) {
+                        $output['invoice_format'] = $input['invoice_format'];
+                    } else {
+                        add_settings_error(
+                            esc_attr($this->settings_key),
+                            'invalid_invoice_format-1',
+                            __('The [number] placeholder is required as invoice number format.', $this->textdomain)
+                        );
+                    }
                 } else {
                     add_settings_error(
                         esc_attr($this->settings_key),
-                        'invalid_invoice_format-1',
-                        __('The [number] placeholder is required as invoice number format.', $this->textdomain)
+                        'invalid_invoice_format-2',
+                        __('Invalid invoice number format.', $this->textdomain)
                     );
                 }
-            } else {
-                add_settings_error(
-                    esc_attr($this->settings_key),
-                    'invalid_invoice_format-2',
-                    __('Invalid invoice number format.', $this->textdomain)
-                );
             }
 
             // Validate all checkboxes
             $cb_errors = 0;
             $checkbox_values = array(
-                'reset_invoice_number' => $input['reset_invoice_number'],
-                'show_sku' => $input['show_sku'],
-                'show_discount' => $input['show_discount'],
-                'show_subtotal' => $input['show_subtotal'],
-                'show_tax' => $input['show_tax'],
-                'show_shipping' => $input['show_shipping'],
-                'show_customer_notes' => $input['show_customer_notes']
+                'reset_invoice_number' => ( isset( $input['reset_invoice_number'] ) ) ? $input['reset_invoice_number'] : '',
+                'show_sku' => ( isset( $input['show_sku'] ) ) ? $input['show_sku'] : '',
+                'show_discount' => ( isset( $input['show_discount'] ) ) ? $input['show_discount'] : '',
+                'show_subtotal' => ( isset( $input['show_subtotal'] ) ) ? $input['show_subtotal'] : '',
+                'show_tax' => ( isset( $input['show_tax'] ) ) ? $input['show_tax'] : '',
+                'show_shipping' => ( isset( $input['show_shipping'] ) ) ? $input['show_shipping'] : '',
+                'show_customer_notes' => ( isset( $input['show_customer_notes'] ) ) ? $input['show_customer_notes'] : ''
             );
 
             foreach ($checkbox_values as $key => $value) {
-                ($this->validate_checkbox($value)) ? $output[$key] = $value : $output[$key] = 0;
+                if( $value != '' ) {
+                    ($this->validate_checkbox($value)) ? $output[$key] = $value : $output[$key] = 0;
+                }
             }
 
             if ($cb_errors > 0) {
@@ -595,14 +619,16 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
                 );
             }
 
-            if ($this->is_valid_str($input['invoice_date_format'])) {
-                $output['invoice_date_format'] = $input['invoice_date_format'];
-            } else {
-                add_settings_error(
-                    esc_attr($this->settings_key),
-                    'invalid-date-format',
-                    __('Invalid date format.', $this->textdomain)
-                );
+            if( isset( $input['invoice_date_format'] ) ) {
+                if ($this->is_valid_str($input['invoice_date_format'])) {
+                    $output['invoice_date_format'] = $input['invoice_date_format'];
+                } else {
+                    add_settings_error(
+                        esc_attr($this->settings_key),
+                        'invalid-date-format',
+                        __('Invalid date format.', $this->textdomain)
+                    );
+                }
             }
 
             return $output;

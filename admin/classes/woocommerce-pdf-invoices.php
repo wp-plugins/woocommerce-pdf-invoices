@@ -273,7 +273,7 @@ if ( ! class_exists( 'BE_WooCommerce_PDF_Invoices' ) ) {
 		public function woocommerce_order_page_action_view_invoice( $order ) {
             $invoice = new WPI_Invoice(new WC_Order($order->id), $this->textdomain);
             if( $invoice->exists() ) {
-                $this->show_invoice_button('View invoice', $order->id, 'view', '', ['class="button tips wpi-admin-order-create-invoice-btn"'] );
+                $this->show_invoice_button('View invoice', $order->id, 'view', '', array('class="button tips wpi-admin-order-create-invoice-btn"') );
             }
 		}
 
@@ -314,7 +314,8 @@ if ( ! class_exists( 'BE_WooCommerce_PDF_Invoices' ) ) {
                 $attr .= $str . ' ';
             }
 
-            echo '<a title="' . $title . '" href="' . $href . '" ' . $attr . '><button type="button" class="button grant_access">' . $btn_title . '</button></a>';
+            $btn = '<a title="' . $title . '" href="' . $href . '" ' . $attr . '><button type="button" class="button grant_access">' . $btn_title . '</button></a>';
+            echo $btn;
         }
 
         /**
@@ -326,11 +327,11 @@ if ( ! class_exists( 'BE_WooCommerce_PDF_Invoices' ) ) {
 
             if( $invoice->exists() ) {
                 $this->show_invoice_number_info($invoice->get_formatted_date(), $invoice->get_formatted_invoice_number());
-                $this->show_invoice_button('View invoice', $post->ID, 'view', 'View', ['class="invoice-btn"'] );
-                $this->show_invoice_button('Cancel invoice', $post->ID, 'cancel', 'Cancel', ['class="invoice-btn"', 'onclick="return confirm(\'Are you sure to delete the invoice?\')"'] );
+                $this->show_invoice_button('View invoice', $post->ID, 'view', 'View', array('class="invoice-btn"') );
+                $this->show_invoice_button('Cancel invoice', $post->ID, 'cancel', 'Cancel', array('class="invoice-btn"', 'onclick="return confirm(\'Are you sure to delete the invoice?\')"' ) );
             } else {
                 $invoice->delete_all_post_meta();
-                $this->show_invoice_button('Create invoice', $post->ID, 'create', 'Create', ['class="invoice-btn"'] );
+                $this->show_invoice_button('Create invoice', $post->ID, 'create', 'Create', array('class="invoice-btn"') );
             }
 		}
 	}
