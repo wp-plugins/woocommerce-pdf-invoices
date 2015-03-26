@@ -21,7 +21,7 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
          * @var array
          */
         private $defaults = array(
-            'template_id' => 1,
+            'template' => 'invoice-micro.php',
             'color_theme' => '#11B0E7',
             'company_name' => '',
             'company_logo' => '',
@@ -58,7 +58,6 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
          */
         private $templates = array(
             array(
-                'id' => 1,
                 'name' => 'Micro',
                 'filename' => 'invoice-micro.php'
             )
@@ -91,11 +90,6 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
         public function load_settings() {
             $this->settings = (array)get_option($this->settings_key);
             $this->settings = array_merge($this->defaults, $this->settings);
-
-            if ($this->settings['template_id'] != "") {
-                $this->settings['template_filename'] = $this->get_template($this->settings['template_id'])['filename'];
-            }
-
             update_option($this->settings_key, $this->settings);
         }
 
@@ -106,7 +100,7 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
         {
             register_setting($this->settings_key, $this->settings_key, array(&$this, 'validate'));
             add_settings_section('section_template', __('Template Settings', $this->textdomain), '', $this->settings_key);
-            add_settings_field('template_id', __('Template', $this->textdomain), array(&$this, 'template_id_option'), $this->settings_key, 'section_template', $this->templates);
+            add_settings_field('template', __('Template', $this->textdomain), array(&$this, 'template_option'), $this->settings_key, 'section_template', $this->templates);
             add_settings_field('color_theme', __('Color theme', $this->textdomain), array(&$this, 'color_theme_option'), $this->settings_key, 'section_template');
             add_settings_field('company_name', __('Company name', $this->textdomain), array(&$this, 'company_name_option'), $this->settings_key, 'section_template');
             add_settings_field('company_logo', __('Company logo', $this->textdomain), array(&$this, 'company_logo_option'), $this->settings_key, 'section_template');
@@ -140,15 +134,15 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
         /**
          * @param $args
          */
-        public function template_id_option($args)
+        public function template_option($args)
         {
             ?>
-            <select id="template-type-option" name="<?php echo $this->settings_key; ?>[template_id]">
+            <select id="template-type-option" name="<?php echo $this->settings_key; ?>[template]">
                 <?php
                 foreach ($args as $template) {
                     ?>
                     <option
-                        value="<?php echo $template['id']; ?>"   <?php selected($this->settings['template_id'], $template['id']); ?>><?php echo $template['name']; ?></option>
+                        value="<?php echo $template['filename']; ?>"   <?php selected($this->settings['template'], $template['filename']); ?>><?php echo $template['name']; ?></option>
                 <?php
                 }
                 ?>

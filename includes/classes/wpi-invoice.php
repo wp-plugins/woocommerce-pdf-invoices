@@ -11,9 +11,8 @@ if ( ! class_exists( 'WPI_Invoice' ) ) {
      */
     class WPI_Invoice {
 
-        /**
+        /*
          * WooCommerce order
-         * @var string
          */
         private $order;
 
@@ -70,7 +69,7 @@ if ( ! class_exists( 'WPI_Invoice' ) ) {
          * @param string $order
          * @param $textdomain
          */
-        public function __construct($order = '', $textdomain) {
+        public function __construct($order, $textdomain) {
             $this->order = $order;
             $this->textdomain = $textdomain;
             $this->general_settings = (array)get_option('general_settings');
@@ -98,7 +97,8 @@ if ( ! class_exists( 'WPI_Invoice' ) ) {
                 $last_year = $this->template_settings['last_invoiced_year'];
 
                 if ( !empty( $last_year ) && is_numeric($last_year)) {
-                    $current_year = getdate()['year'];
+                    $date = getdate();
+                    $current_year = $date['year'];
                     if ($last_year < $current_year) {
                         // Set new year as last invoiced year and reset invoice number
                         return 1;
@@ -212,7 +212,7 @@ if ( ! class_exists( 'WPI_Invoice' ) ) {
 
                 if( $invoice_number_created ) {
                     // Set the current year as the last invoiced.
-                    $this->template_settings['last_invoiced_year'] = getdate()['year'];
+                    $this->template_settings['last_invoiced_year'] = date("Y");
 
                     // Get the new invoice number from db.
                     $this->number = $this->get_invoice_number();
@@ -321,10 +321,13 @@ if ( ! class_exists( 'WPI_Invoice' ) ) {
                 <tbody>
                 <tr>
                     <td class="border" colspan="2">
-                        <?php echo $this->template_settings['terms']; ?><br/>
-                        <?php if (count($this->order->get_customer_order_notes()) > 0) { ?>
+                        <?php echo $this->template_settings['terms']; ?>
+                        <br/>
+                        <?php
+                        $customer_order_notes = $this->order->get_customer_order_notes();
+                        if ( count( $customer_order_notes ) > 0 ) { ?>
                             <p>
-                                <strong><?php _e('Customer note', $this->textdomain); ?> </strong><?php echo $this->order->get_customer_order_notes()[0]->comment_content; ?>
+                                <strong><?php _e('Customer note', $this->textdomain); ?> </strong><?php echo $customer_order_notes[0]->comment_content; ?>
                             </p>
                         <?php } ?>
                     </td>
@@ -404,7 +407,7 @@ if ( ! class_exists( 'WPI_Invoice' ) ) {
          * @return string
          */
         private function get_template() {
-            return WPI_TEMPLATES_DIR . $this->template_settings['template_filename'];
+            return WPI_TEMPLATES_DIR . $this->template_settings['template'];
         }
 
         /**
