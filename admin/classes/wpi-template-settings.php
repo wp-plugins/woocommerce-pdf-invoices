@@ -502,7 +502,11 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
             }
 
             // Validate company logo
-            $output['company_logo'] = $this->upload_file();
+            if(isset( $_FILES['company_logo']) ) {
+                $output['company_logo'] = $this->upload_file();
+            } else if( isset( $input['company_logo'] ) ) {
+                $output['company_logo'] = $input['company_logo'];
+            }
 
             // Validate textarea's
             $ta_errors = 0;
@@ -562,7 +566,7 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
                 $output['invoice_prefix'] = esc_html($input['invoice_prefix']);
             }
 
-            if( isset( $input['email_it_in_account'] ) ) {
+            if( isset( $input['invoice_suffix'] ) ) {
                 $output['invoice_suffix'] = esc_html($input['invoice_suffix']);
             }
 

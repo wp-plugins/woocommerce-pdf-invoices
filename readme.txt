@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: baaaaas
 Donate link: 
-Tags: woocommerce pdf invoices, invoice, generate, pdf, woocommerce, attachment, email, completed order, customer invoice, processing order, attach, automatic, vat, rate, sequential, number
+Tags: woocommerce, woocommerce pdf invoices, woocommerce pdf invoice, pdf, pdf invoice, pdf invoices, pdf receipt, pdf bill, bill, billing, invoices, invoice, receipt, attach, email, mpdf, generate, completed order, customer invoice, processing order, automatic, automatically, shop invoice, woocommerce order, order, invoice number, number
 Requires at least: 3.5
 Tested up to: 4.1.1
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,10 @@ The manual installation method involves downloading our plugin and uploading it 
 3. Activate the plugin from the Plugins menu within the WordPress admin.
 
 == Changelog ==
+
+= 2.0.3 - March 27, 2015 =
+
+- Fixed: Suffix and company logo dissapearing
 
 = 2.0.2 - March 26, 2015 =
 
