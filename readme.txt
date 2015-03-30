@@ -69,8 +69,8 @@ The manual installation method involves downloading our plugin and uploading it 
 
 = 2.0.5 - March 30, 2015 =
 
-- Fixed: Invoice number type doens't get saved.
-- Improved: WPI_Invoice class code
+- Fixed: Invoice number type doesn't get saved.
+- Improved: WPI_Invoice class code.
 
 = 2.0.4 - March 30, 2015 =
 
