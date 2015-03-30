@@ -1,10 +1,10 @@
 === Plugin Name ===
 Contributors: baaaaas
 Donate link: 
-Tags: woocommerce, woocommerce pdf invoices, woocommerce pdf invoice, pdf, pdf invoice, pdf invoices, pdf receipt, pdf bill, bill, billing, invoices, invoice, receipt, attach, email, mpdf, generate, completed order, customer invoice, processing order, automatic, automatically, shop invoice, woocommerce order, order, invoice number, number
+Tags: woocommerce pdf invoices, invoice, generate, pdf, woocommerce, attachment, email, completed order, customer invoice, processing order, attach, automatic, vat, rate, sequential, number
 Requires at least: 3.5
 Tested up to: 4.1.1
-Stable tag: 2.0.3
+Stable tag: 2.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,9 +67,16 @@ The manual installation method involves downloading our plugin and uploading it 
 
 == Changelog ==
 
+= 2.0.4 - March 30, 2015 =
+
+- Added: Option to use WC order number as invoice number
+- Added: Slovenian language file
+- Added: French language file
+- Fixed: Translation invoice
+
 = 2.0.3 - March 27, 2015 =
 
-- Fixed: Suffix and company logo dissapearing
+- Fixed: Suffix and company logo disappearing
 
 = 2.0.2 - March 26, 2015 =
 

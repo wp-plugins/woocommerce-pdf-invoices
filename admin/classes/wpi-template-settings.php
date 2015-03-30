@@ -35,6 +35,7 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
             'show_shipping' => 0,
             'show_customer_notes' => 0,
             'show_sku' => 0,
+            'invoice_number_type' => 'woocommerce_order_number',
             'next_invoice_number' => 1,
             'invoice_number_digits' => 3,
             'invoice_prefix' => '',
@@ -108,6 +109,7 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
             add_settings_field('company_address', __('Company address', $this->textdomain), array(&$this, 'company_address_option'), $this->settings_key, 'section_template');
             add_settings_field('company_details', __('Company details', $this->textdomain), array(&$this, 'company_details_option'), $this->settings_key, 'section_template');
             add_settings_field('terms', __('Terms & conditions, policies etc.', $this->textdomain), array(&$this, 'terms_option'), $this->settings_key, 'section_template');
+            add_settings_field('invoice_number_type', __('Invoice number type', $this->textdomain), array(&$this, 'invoice_number_type_option'), $this->settings_key, 'section_template');
             add_settings_field('next_invoice_number', __('Next invoice number', $this->textdomain), array(&$this, 'next_invoice_number_option'), $this->settings_key, 'section_template');
             add_settings_field('invoice_number_digits', __('Number of digits', $this->textdomain), array(&$this, 'invoice_number_digits_option'), $this->settings_key, 'section_template');
             add_settings_field('invoice_prefix', __('Invoice number prefix', $this->textdomain), array(&$this, 'invoice_prefix_option'), $this->settings_key, 'section_template');
@@ -245,6 +247,18 @@ if ( ! class_exists( 'WPI_Template_Settings' ) ) {
             <div class="notes block"><?php echo $this->get_allowed_tags_str(); ?></div>
             <textarea name="<?php echo $this->settings_key; ?>[terms]" rows="5"
                       cols="50"><?php _e(esc_textarea($this->settings['terms'], $this->textdomain)); ?></textarea>
+        <?php
+        }
+
+        /**
+         * Wich type of invoice number should we use? WooCommerce order number or sequential?
+         */
+        public function invoice_number_type_option() {
+            ?>
+            <select id="invoice-number-type-option" name="<?php echo $this->settings_key; ?>[invoice_number_type]">
+                <option value="woocommerce_order_number"   <?php selected($this->settings['invoice_number_type'], 'woocommerce_order_number'); ?>>WooCommerce order number</option>
+                <option value="sequential_number"   <?php selected($this->settings['invoice_number_type'], 'sequential_number'); ?>>Sequential number</option>
+            </select>
         <?php
         }
 
