@@ -4,7 +4,7 @@ Donate link:
 Tags: woocommerce pdf invoices, invoice, generate, pdf, woocommerce, attachment, email, completed order, customer invoice, processing order, attach, automatic, vat, rate, sequential, number
 Requires at least: 3.5
 Tested up to: 4.1.1
-Stable tag: 2.0.6
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,7 +37,7 @@ If you want to add code to the source code, report an issue or request an enhanc
 
 = Translating =
 
-Contribute a translation on [GitHub](https://github.com/baselbers/woocommerce-pdf-invoices) or send the translation files directly to baselbers@hotmail.com.
+Contribute a translation on [GitHub](https://github.com/baselbers/woocommerce-pdf-invoices).
 
 == Screenshots ==
 
@@ -63,6 +63,16 @@ The manual installation method involves downloading our plugin and uploading it 
 3. Activate the plugin from the Plugins menu within the WordPress admin.
 
 == Changelog ==
+
+= 2.1.0 - April 8, 2015 =
+
+- Added: Variable products attributes on template
+- Added: Shipping address on template
+- Added: Order number and order date on template
+- Added: Option to add the year to the invoice number
+- Added: Option to change order date format
+- Fixed: Header CSS on template
+- Improved: Dutch language file
 
 = 2.0.6 - April 3, 2015 =
 
