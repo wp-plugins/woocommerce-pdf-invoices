@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: WooCommerce PDF Invoices\n"
-"POT-Creation-Date: 2015-04-23 23:33+0100\n"
-"PO-Revision-Date: 2015-04-23 23:46+0100\n"
+"POT-Creation-Date: 2015-04-25 09:02+0100\n"
+"PO-Revision-Date: 2015-04-25 09:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: nl_NL\n"
@@ -28,52 +28,52 @@ msgstr "Algemeen"
 msgid "Template"
 msgstr ""
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:169
 #: admin/classes/be-woocommerce-pdf-invoices.php:170
+#: admin/classes/be-woocommerce-pdf-invoices.php:171
 msgid "Invoices"
 msgstr "Facturen"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:275
+#: admin/classes/be-woocommerce-pdf-invoices.php:276
 msgid "PDF Invoice"
 msgstr "PDF Factuur"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:302
+#: admin/classes/be-woocommerce-pdf-invoices.php:303
 msgid "Invoiced on:"
 msgstr "Gefactureerd op:"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:306
+#: admin/classes/be-woocommerce-pdf-invoices.php:307
 msgid "Invoice number:"
 msgstr "Factuurnummer:"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:344
+#: admin/classes/be-woocommerce-pdf-invoices.php:345
 msgid "View invoice"
 msgstr "Toon factuur"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:344
+#: admin/classes/be-woocommerce-pdf-invoices.php:345
 msgid "View"
 msgstr "Bekijk"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:345
+#: admin/classes/be-woocommerce-pdf-invoices.php:346
 msgid "Cancel invoice"
 msgstr "Factuur annuleren"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:345
+#: admin/classes/be-woocommerce-pdf-invoices.php:346
 msgid "Cancel"
 msgstr "Annuleer"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:345
+#: admin/classes/be-woocommerce-pdf-invoices.php:346
 msgid "Are you sure to delete the invoice?"
 msgstr "Weet u zeker dat u de factuur wilt verwijderen?"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:347
+#: admin/classes/be-woocommerce-pdf-invoices.php:348
 msgid "Create invoice"
 msgstr "Maak factuur"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:347
+#: admin/classes/be-woocommerce-pdf-invoices.php:348
 msgid "Create"
 msgstr "Aanmaken"
 
-#: admin/classes/be-woocommerce-pdf-invoices.php:380
+#: admin/classes/be-woocommerce-pdf-invoices.php:381
 msgid "Download invoice (PDF)"
 msgstr "Download factuur (PDF)"
 
@@ -131,7 +131,7 @@ msgstr ""
 msgid "Feel free to use "
 msgstr "Gebruik"
 
-#: admin/classes/bewpi-settings.php:153
+#: admin/classes/bewpi-settings.php:157
 msgid "Remove logo"
 msgstr "Verwijder logo"
 
